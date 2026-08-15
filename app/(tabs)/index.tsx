@@ -1,28 +1,45 @@
-import "@/global.css"
 import { Text, View } from "react-native";
 import { Link } from "expo-router";
+import { useState } from 'react';
+import React from 'react';
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
-export default function App() {
+import "@/global.css";
+
+const DwelloHome = () => {
+    // 1. Initialize the insets to measure the hardware cutouts
+    const insets = useSafeAreaInsets();
+
+    const [userName, setUserName] = useState<string | null>(null);
+    const greetingName = userName ? userName : "stranger";
+
     return (
-        <View className="flex-1 items-center justify-center bg-white">
-            <Text className="text-xl font-bold text-orange-500">
-                Hi stranger! Ready to Dwell-In?
-            </Text>
+        // 2. We use a standard View, but push the top down by the exact size of the notch
+        <View
+            className="flex-1 bg-white px-6"
+            style={{ paddingTop: insets.top }}
+        >
+            <View className="flex-1 items-center justify-center">
 
-            {/* Fixed the paths to point to the correct files and made onboarding lowercase */}
-            <Link href="/onboarding" className="mt-4 rounded bg-primary text-white p-4">Go to Onboarding</Link>
-            <Link href="/sign-in" className="mt-4 rounded bg-primary text-white p-4">Go to Sign in</Link>
-            <Link href="/sign-up" className="mt-4 rounded bg-primary text-white p-4">Go to Sign up</Link>
+                <Text className="text-2xl font-bold text-orange-500 text-center">
+                    Hi {greetingName}! Ready to Dwell-In?
+                </Text>
 
-            <Link href={"/subscriptions/spotify" as any}>Spotify Subscription</Link>
-            <Link
-                href={{
-                    pathname: "/subscriptions/[id]",
-                    params: { id: "claude" },
-                }}
-            >
-                Claude Max Subscription
-            </Link>
+                <View className="mt-10 w-full gap-y-4">
+                    <Link href="/onboarding" className="w-full rounded-lg bg-[#333] text-white p-4 text-center font-semibold overflow-hidden">
+                        Go to Onboarding (Demo)
+                    </Link>
+                    <Link href="/sign-in" className="w-full rounded-lg bg-[#333] text-white p-4 text-center font-semibold overflow-hidden">
+                        Go to Sign in (Demo)
+                    </Link>
+                    <Link href="/sign-up" className="w-full rounded-lg bg-[#333] text-white p-4 text-center font-semibold overflow-hidden">
+                        Go to Sign up (Demo)
+                    </Link>
+                </View>
+
+            </View>
         </View>
     );
 }
+
+export default DwelloHome;
