@@ -21,18 +21,18 @@ const DwelloHome = () => {
         >
             <View className="flex-1 items-center justify-center">
 
-                <Text className="text-2xl font-bold text-orange-500 text-center">
+                <Text className="text-2xl font-sans-bold text-orange-500 text-center">
                     Hi {greetingName}! Ready to Dwell-In?
                 </Text>
 
                 <View className="mt-10 w-full gap-y-4">
-                    <Link href="/onboarding" className="w-full rounded-lg bg-[#333] text-white p-4 text-center font-semibold overflow-hidden">
+                    <Link href="/onboarding" className="w-full rounded-lg bg-[#333] text-white p-4 text-center font-sans-semibold overflow-hidden">
                         Go to Onboarding (Demo)
                     </Link>
-                    <Link href="/sign-in" className="w-full rounded-lg bg-[#333] text-white p-4 text-center font-semibold overflow-hidden">
+                    <Link href="/sign-in" className="w-full rounded-lg bg-[#333] text-white p-4 text-center font-sans-semibold overflow-hidden">
                         Go to Sign in (Demo)
                     </Link>
-                    <Link href="/sign-up" className="w-full rounded-lg bg-[#333] text-white p-4 text-center font-semibold overflow-hidden">
+                    <Link href="/sign-up" className="w-full rounded-lg bg-[#333] text-white p-4 text-center font-sans-semibold overflow-hidden">
                         Go to Sign up (Demo)
                     </Link>
                 </View>

@@ -10,7 +10,7 @@ const Profile = () => {
             className="flex-1 bg-white items-center justify-center"
             style={{ paddingTop: insets.top }}
         >
-            <Text className="text-2xl font-bold text-black">
+            <Text className="text-2xl font-sans-bold text-black">
                 Profile Screen
             </Text>
         </View>
